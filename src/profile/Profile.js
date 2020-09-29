@@ -3,11 +3,7 @@ import PropTypes from "prop-types";
 import style from "./style.css"
 
 const Profile = props => {
-    const handleClick = e => {
-        e.preventDefault();
-        
-        alert(`Hello ${props.fullname}`)
-    };
+  
     const card = {
         boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2)",
         maxWidth: "300px",
@@ -23,12 +19,10 @@ const Profile = props => {
                 <li>age : {props.age}</li>
                 <li>bio : {props.bio}</li>
                 <li>profession : {props.profession}</li>
-               
                 
             </ul>
             {props.children}
-            <button><a style = {link} href="/" onClick={handleClick}> Click me </a></button>
-           
+            <button><a style = {link} href="/" onClick={props.handleClick(props.fullname)}> Click me </a></button>
         </div>
     )
 }
